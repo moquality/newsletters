@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <head>
+    <title>Getting Started with Public Device Clouds for Mobile App Testing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+      /* CLIENT-SPECIFIC STYLES */
+      #outlook a {
+        padding:0;
+      }
+
+      /* Force Outlook to provide a "view in browser" message */
+      .ReadMsgBody {
+        width:100%;
+      }
+
+      .ExternalClass {
+        width:100%;
+      }
+
+      /* Force Hotmail to display emails at full width */
+      .ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div {
+        line-height:100%;
+      }
+
+      /* Force Hotmail to display normal line spacing */
+      body,table,td,a {
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+      }
+
+      /* Prevent WebKit and Windows mobile changing default text sizes */
+      table,td {
+        mso-table-lspace:0;
+        mso-table-rspace:0;
+      }
+
+      /* Remove spacing between tables in Outlook 2007 and up */
+      img {
+        -ms-interpolation-mode:bicubic;
+      }
+
+      /* Allow smoother rendering of resized image in Internet Explorer */
+      /* RESET STYLES */
+      body {
+        margin:0;
+        padding:0;
+      }
+
+      img {
+        border:0;
+        height:auto;
+        line-height:100%;
+        outline:none;
+        text-decoration:none;
+      }
+
+      table {
+        border-collapse:collapse !important;
+      }
+
+      body {
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+      }
+
+      /* iOS BLUE LINKS */
+      .appleBody a {
+        color:#68440a;
+        text-decoration:none;
+      }
+
+      .appleFooter a {
+        color:#999999;
+        text-decoration:none;
+      }
+
+      img[class="mobile-only"] {
+        display:none !important;
+        }
+
+      /* MOBILE STYLES */
+      @media screen and (max-width: 525px) {
+        /* ALLOWS FOR FLUID TABLES */
+        table[class="wrapper"] {
+          width:100% !important;
+        }
+
+        /* ADJUSTS LAYOUT OF LOGO IMAGE */
+        td[class="logo"] {
+          text-align:center;
+          padding:20px 0 !important;
+        }
+
+        td[class="logo"] img {
+          margin:0 auto !important;
+        }
+
+        /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+        td[class="mobile-hide"] {
+          display:none;
+        }
+
+        img[class="mobile-hide"] {
+          display:none !important;
+        }
+
+        img[class="mobile-only"] {
+          display:inline !important;
+        }
+
+        img[class="img-max"] {
+          max-width:100% !important;
+          height:auto !important;
+        }
+
+        /* FULL-WIDTH TABLES */
+        table[class="responsive-table"] {
+          width:100% !important;
+        }
+
+        /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+        td[class="padding"] {
+          padding:10px 5% 15px !important;
+        }
+
+        td[class="padding-copy-left"] {
+          padding:10px 5% !important;
+          text-align:left;
+        }
+
+        td[class="padding-copy"] {
+          padding:10px 5% !important;
+          text-align:center;
+        }
+
+        td[class="padding-meta"] {
+          padding:30px 5% 0 !important;
+          text-align:center;
+        }
+
+        td[class="no-pad"] {
+          padding:0 0 20px !important;
+        }
+
+        td[class="no-padding"] {
+          padding:0 !important;
+        }
+
+        td[class="section-padding"] {
+          padding:50px 15px !important;
+        }
+
+        td[class="section-padding-bottom-image"] {
+          padding:25px 15px;
+        }
+
+        /* ADJUST BUTTONS ON MOBILE */
+        td[class="mobile-wrapper"] {
+          padding:10px 5% 15px !important;
+        }
+
+        table[class="mobile-button-container"] {
+          margin:0 auto;
+          width:100% !important;
+        }
+
+        a[class="mobile-button"] {
+          width:80% !important;
+          padding:15px !important;
+          border:0 !important;
+          font-size:14px !important;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        table#canspamBar td {
+          font-size:14px !important;
+        }
+
+        table#canspamBar td a {
+          display:block !important;
+          margin-top:10px !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0;">
+    <!-- HEADER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+      <tr>
+        <td bgcolor="#ffffff">
+          <div align="center" style="padding:20px 10px 0px 10px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="wrapper">
+              <!-- LOGO/PREHEADER TEXT -->
+              <tr>
+                <td align="center" style="padding:20px 0px 10px 0px;" class="padding-copy">
+                  <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td bgcolor="#ffffff" align="center">
+                        <a href="http://moquality.com" target="_blank"><img alt="MoQuality Inc." src="https://gallery.mailchimp.com/76ac4260623acd922e6bb1a9c/images/ee57a785-d61d-46cd-96df-add5fbd3d328.gif" style="display: block; border="></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#ffffff" style="font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;">
+                        AI powered mobile app test automation to improve the end-user experience
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!-- ONE COLUMN SECTION -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+      <tr>
+        <td bgcolor="#ffffff" align="center" style="padding:10px 15px 10px 15px;" class="section-padding">
+          <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <!-- HERO IMAGE -->
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td align="justify" style="padding:10px 0 0px 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy-left">
+                                    <p>Hi *|FNAME|*,</p>
+                                    <p>Recently many of our users have expressed interest in learning about running their automated tests on public device clouds. I delivered a talk recently at Android Summit comparing the most popular options. Check out our latest blog to learn more and share it with your QA team.
+                                  </p>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!-- ONE COLUMN W/ BOTTOM IMAGE SECTION -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+    <tr>
+      <td bgcolor="#f1f1f1" align="center" style="padding:5px;" class="section-padding-bottom-image">
+        <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+          <tr>
+            <td align="center" style="font-size:25px;font-family:Helvetica, Arial, sans-serif;color:#333333;padding-top:0px;" class="padding-copy">Blogs</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!-- ONE COLUMN W/ BOTTOM IMAGE SECTION -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+    <tr>
+      <td bgcolor="#f8f8f8" align="center" style="padding:25px 15px 25px 15px;" class="section-padding-bottom-image">
+        <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <!--  BOTTOM IMAGE -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td align="center" style="font-size:22px;font-family:Helvetica, Arial, sans-serif;color:#333333;padding:30px 50px 0px 50px;" class="padding-copy">Getting Started with Public Device Clouds for Mobile App Testing</td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="padding:20px;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy">
+                              <img class="mobile-hide" src="https://gallery.mailchimp.com/76ac4260623acd922e6bb1a9c/images/e5eea7c2-9df7-4883-a6b3-425a792dd9fd.png" alt="Device Cloud Providers" width="500">
+                            </td>
+                        </tr>
+                        <tr>
+                          <td align="justify" style="padding:10px 0 20px 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy-left">In this blog, we share our experience with public device clouds including Google Firebase Test Lab, AWS Device Farm, and Microsoft App Center. Refer it to try these device cloud options for your mobile app testing needs for free. We empirically compare and contrast the different services, and how testing on them can fit into an agile CI/CD process.</td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="padding:10px 10px 10px 10px;">
+                            <a href="https://www.moquality.com/blog/Getting-Started-with-Public-Device-Clouds-for-Mobile-App-Testing/" target="_blank" style="font-size:16px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;background-color:#5D9CEC;border-top:15px solid #5D9CEC;border-bottom:15px solid #5D9CEC;border-left:25px solid #5D9CEC;border-right:25px solid #5D9CEC;border-radius:3px;-webkit-border-radius:3px;display:inline-block;" class="mobile-button">Read More →</a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!-- TWO COLUMN SECTION -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+      <tr>
+        <td bgcolor="#ffffff" align="center" style="padding:25px 15px 25px 15px;" class="section-padding">
+          <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+            <tr>
+              <td>
+                <!-- TITLE SECTION AND COPY -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <!-- Feedback section-->
+                  <tr>
+                    <td>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <!-- Feedback section ends-->
+                        <tr>
+                          <td align="left" style="padding:10px 0 0 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy-left">
+                            Got any thoughts or need help digesting this? Join the discussion on the blog or reply to this email.
+                            <br>
+                            <br>
+                            Cheers!<br>
+                            Shauvik Roy Choudhary<br>
+                            CEO and Co-founder, MoQuality<br>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- FOOTER -->
+          <table border="0" cellpadding="0" cellspacing="0" style="table-layout:auto;">
+            <tr>
+              <td bgcolor="#ffffff" align="center">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td style="padding:20px 0px 20px 0px;">
+                      <!-- UNSUBSCRIBE COPY -->
+                      <table border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table">
+                        <tr>
+                          <td align="center" valign="middle" style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;color:#666666;">
+                            <a href="https://twitter.com/moqualityinc" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-twitter-48.png" style="width:24px; height: 24px; padding: 0px 10px 0px 10px;" alt="color-twitter-48.png"></a>
+                            <a href="https://www.linkedin.com/company/moquality" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-linkedin-48.png" style="width:24px; height: 24px; padding: 0px 10px 0px 10px;" alt="color-linkedin-48.png"></a>
+                            <a href="https://moquality.com" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-link-48.png" style="width:24px; height: 24px; padding: 0px 10px 0px 10px;" alt="color-link-48.png"></a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#ffffff" align="center">
+                      <table border="0" cellspacing="0" cellpadding="0" align="center">
+                        <tr>
+                          <td style="padding:5px 0px 20px 0px;">
+                            <!-- UNSUBSCRIBE COPY -->
+                            <table border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table">
+                              <tr>
+                                <td align="center" valign="middle" style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;color:#666666;">75 5th St NW Suite #2080, Atlanta, GA 30308
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="center" valign="middle" style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;color:#666666;">
+                                  <a href="*|UNSUB|*" class="original-only" style="color:#666666;text-decoration:none;">Unsubscribe</a> |
+                                    <a href="*|ARCHIVE|*" style="color:#666666;text-decoration:none;">View this email in your browser</a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+</html>

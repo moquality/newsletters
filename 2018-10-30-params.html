@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <head>
+    <title>Save time by parameterizing test inputs and reusing tests</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+      /* CLIENT-SPECIFIC STYLES */
+      #outlook a {
+        padding:0;
+      }
+
+      /* Force Outlook to provide a "view in browser" message */
+      .ReadMsgBody {
+        width:100%;
+      }
+
+      .ExternalClass {
+        width:100%;
+      }
+
+      /* Force Hotmail to display emails at full width */
+      .ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div {
+        line-height:100%;
+      }
+
+      /* Force Hotmail to display normal line spacing */
+      body,table,td,a {
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+      }
+
+      /* Prevent WebKit and Windows mobile changing default text sizes */
+      table,td {
+        mso-table-lspace:0;
+        mso-table-rspace:0;
+      }
+
+      /* Remove spacing between tables in Outlook 2007 and up */
+      img {
+        -ms-interpolation-mode:bicubic;
+      }
+
+      /* Allow smoother rendering of resized image in Internet Explorer */
+      /* RESET STYLES */
+      body {
+        margin:0;
+        padding:0;
+      }
+
+      img {
+        border:0;
+        height:auto;
+        line-height:100%;
+        outline:none;
+        text-decoration:none;
+      }
+
+      table {
+        border-collapse:collapse !important;
+      }
+
+      body {
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+      }
+
+      /* iOS BLUE LINKS */
+      .appleBody a {
+        color:#68440a;
+        text-decoration:none;
+      }
+
+      .appleFooter a {
+        color:#999999;
+        text-decoration:none;
+      }
+
+      /* MOBILE STYLES */
+      @media screen and (max-width: 525px) {
+        /* ALLOWS FOR FLUID TABLES */
+        table[class="wrapper"] {
+          width:100% !important;
+        }
+
+        /* ADJUSTS LAYOUT OF LOGO IMAGE */
+        td[class="logo"] {
+          text-align:left;
+          padding:20px 0 !important;
+        }
+
+        td[class="logo"] img {
+          margin:0 auto !important;
+        }
+
+        /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+        td[class="mobile-hide"] {
+          display:none;
+        }
+
+        img[class="mobile-hide"] {
+          display:none !important;
+        }
+
+        img[class="img-max"] {
+          max-width:100% !important;
+          height:auto !important;
+        }
+
+        /* FULL-WIDTH TABLES */
+        table[class="responsive-table"] {
+          width:100% !important;
+        }
+
+        /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+        td[class="padding"] {
+          padding:10px 5% 15px !important;
+        }
+
+        td[class="padding-copy-left"] {
+          padding:10px 5% !important;
+          text-align:left;
+        }
+
+        td[class="padding-copy"] {
+          padding:10px 5% !important;
+          text-align:center;
+        }
+
+        td[class="padding-meta"] {
+          padding:30px 5% 0 !important;
+          text-align:center;
+        }
+
+        td[class="no-pad"] {
+          padding:0 0 20px !important;
+        }
+
+        td[class="no-padding"] {
+          padding:0 !important;
+        }
+
+        td[class="section-padding"] {
+          padding:50px 15px !important;
+        }
+
+        td[class="section-padding-bottom-image"] {
+          padding:25px 15px;
+        }
+
+        /* ADJUST BUTTONS ON MOBILE */
+        td[class="mobile-wrapper"] {
+          padding:10px 5% 15px !important;
+        }
+
+        table[class="mobile-button-container"] {
+          margin:0 auto;
+          width:100% !important;
+        }
+
+        a[class="mobile-button"] {
+          width:80% !important;
+          padding:15px !important;
+          border:0 !important;
+          font-size:14px !important;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        table#canspamBar td {
+          font-size:14px !important;
+        }
+
+        table#canspamBar td a {
+          display:block !important;
+          margin-top:10px !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0;">
+    <!-- HEADER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+      <tr>
+        <td bgcolor="#ffffff">
+          <div align="center" style="padding:0px 10px 0px 10px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="wrapper">
+              <!-- LOGO/PREHEADER TEXT -->
+              <tr>
+                <td style="padding:20px 0px 10px 0px;" class="logo">
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                      <td bgcolor="#ffffff" width="100" align="center">
+                        <a href="http://moquality.com" target="_blank"><img alt="" src="https://gallery.mailchimp.com/76ac4260623acd922e6bb1a9c/images/ee57a785-d61d-46cd-96df-add5fbd3d328.gif" width="250" style="display: block; border="></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" width="100" align="center" style="font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;">
+                        Reclaim your engineers’ time
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!-- ONE COLUMN SECTION -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+      <tr>
+        <td bgcolor="#ffffff" align="center" style="padding:10px 15px 10px 15px;" class="section-padding">
+          <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <!-- HERO IMAGE -->
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td align="left" style="padding:20px 0 20px 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy-left">Hi *|FNAME|*,<br>
+                                    <br>MoQuality team is thankful for your valuable feedback which makes our product better. This week we want to share a new Barista feature - <strong>Test Input Parameterization</strong> and also tell you the story of how Barista was born from research.<br>
+                                    <br>For one of the most common test flows - the login; our users asked us for a way to re-use their recorded tests to re-run with various email and password values. So we built it!</td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!-- ONE COLUMN W/ BOTTOM IMAGE SECTION -->
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+        <tr>
+          <td bgcolor="#f8f8f8" align="center" style="padding:25px 15px 25px 15px;" class="section-padding-bottom-image">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <!--  BOTTOM IMAGE -->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td style="padding:50px 0 0 0;" align="center">
+                              <img src="https://gallery.mailchimp.com/76ac4260623acd922e6bb1a9c/images/cc975bd9-b09d-4c6a-8d1f-adb78a59345a.png" width="500" border="0" alt="Visualize" class="img-max" style="display: block; padding: 0; width: 500px;">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" style="font-size:25px;font-family:Helvetica, Arial, sans-serif;color:#333333;padding-top:30px;" class="padding-copy">Parameterize text inputs</td>
+                          </tr>
+                          <tr>
+                            <td align="center" style="padding:20px 0 0 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy">Now you can simply parameterize text inputs while recording tests on Barista.</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!-- ONE COLUMN W/ BOTTOM IMAGE SECTION -->
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+        <tr>
+          <td bgcolor="#ffffff" align="center" style="padding:25px 15px 25px 15px;" class="section-padding-bottom-image">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td style="padding:50px 0 0 0;" align="center">
+                              <img src="https://gallery.mailchimp.com/76ac4260623acd922e6bb1a9c/images/1d41d079-6ab1-4ace-907e-24f86bce9488.png" width="500" border="0" alt="Visualize" class="img-max" style="display: block; padding: 0; width: 500px;">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" style="font-size:25px;font-family:Helvetica, Arial, sans-serif;color:#333333;padding-top:30px;" class="padding-copy">Run tests with different inputs</td>
+                          </tr>
+                          <tr>
+                            <td align="center" style="padding:20px 0 0 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy">When the test is running, Barista would prompt you to enter values for the test parameters.</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!-- ONE COLUMN W/ BOTTOM IMAGE SECTION -->
+      <table border="0" cellpadding="5" cellspacing="5" width="100%" style="table-layout:auto;">
+        <tr>
+          <td bgcolor="#f8f8f8" align="center" style="padding:25px 15px 25px 15px;" class="section-padding-bottom-image">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+              <!--Blog Section starts-->
+              <tr>
+                <td align="center" style="padding:10px 0 10px 0;font-size:25px;font-family:Helvetica, Arial, sans-serif;color:#333333;" class="padding-copy">New Blog</td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:10px 10px 10px 10px;font-size:18px;font-family:Helvetica, Arial, sans-serif;color:#333333;" class="padding-copy">
+                  <a href="https://www.moquality.com/blog/The-Barista-story/">The Barista story: From manual testing to automated UI test recording</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" style="padding:20px 0 0 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy-left">Barista was born during my Ph.D. research at Georgia Tech. It was developed as a prototype for a new technique that allowed testers to easily create platform-independent test scripts for an app and automatically run the generated test scripts on multiple devices and OS versions. <a href="https://www.moquality.com/blog/The-Barista-story/">Here is how it works....</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!--Blog Section ends-->
+    </table>
+    <!-- TWO COLUMN SECTION -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+      <tr>
+        <td bgcolor="#ffffff" align="center" style="padding:25px 15px 25px 15px;" class="section-padding">
+          <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+            <tr>
+              <td>
+                <!-- TITLE SECTION AND COPY -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <!-- Feedback section-->
+                  <tr>
+                    <td>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center" style="padding:20px 10px 20px 10px;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy">We strive every day to offer a better scriptless testing experience on Barista. Now anyone can easily create tests that run across mobile devices.
+                            <br><strong>We are seeking your input to guide us in building features that serve your needs better.</strong> Please follow the link below to share your thoughts. (Takes 3 minutes)
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="padding:10px 10px 10px 10px;">
+                            <a href="https://goo.gl/forms/CeQTrAVR06cz0miX2" target="_blank" style="font-size:16px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;background-color:#5D9CEC;border-top:15px solid #5D9CEC;border-bottom:15px solid #5D9CEC;border-left:25px solid #5D9CEC;border-right:25px solid #5D9CEC;border-radius:3px;-webkit-border-radius:3px;display:inline-block;" class="mobile-button">I want to participate. Let's go →</a>
+                          </td>
+                        </tr>
+                        <!-- Feedback section ends-->
+                        <tr>
+                          <td align="left" style="padding:10px 0 0 0;font-size:14px;line-height:25px;font-family:Helvetica, Arial, sans-serif;color:#666666;" class="padding-copy-left">
+                            <br>Thanks again and have a rocking weekend!
+                            <br>
+                            <br>
+                            Shauvik Roy Choudhary<br>
+                            CEO and Co-founder, MoQuality<br>
+                          </td>
+
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- FOOTER -->
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:auto;">
+            <tr>
+              <td bgcolor="#ffffff" align="center">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td style="padding:20px 0px 20px 0px;">
+                      <!-- UNSUBSCRIBE COPY -->
+                      <table width="500" border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table">
+                        <tr>
+                          <td align="center" valign="middle" style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;color:#666666;">
+                            <a href="https://twitter.com/moqualityinc" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-twitter-48.png" style="width:24px; height: 24px; padding: 0px 10px 0px 10px;" alt="color-twitter-48.png"></a>
+                            <a href="https://www.linkedin.com/company/moquality" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-linkedin-48.png" style="width:24px; height: 24px; padding: 0px 10px 0px 10px;" alt="color-linkedin-48.png"></a>
+                            <a href="https://moquality.com" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/color-link-48.png" style="width:24px; height: 24px; padding: 0px 10px 0px 10px;" alt="color-link-48.png"></a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#ffffff" align="center">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                        <tr>
+                          <td style="padding:5px 0px 20px 0px;">
+                            <!-- UNSUBSCRIBE COPY -->
+                            <table width="500" border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table">
+                              <tr>
+                                <td align="center" valign="middle" style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;color:#666666;">675 Ponce De Leon Ave NE #9500, Atlanta, GA 30308
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="center" valign="middle" style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;color:#666666;">
+                                  <a href="*|UNSUB|*" class="original-only" style="color:#666666;text-decoration:none;">Unsubscribe</a> |
+                                    <a href="*|ARCHIVE|*" style="color:#666666;text-decoration:none;">View this email in your browser</a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+</html>
